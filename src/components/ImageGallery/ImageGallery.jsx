@@ -7,6 +7,8 @@ import LoadMoreButton from 'components/LoadMoreButton';
 import { getSearchedPicturesApi } from 'services/PixabayAPI';
 
 import ImageGalleryItem from 'components/ImageGalleryItem';
+import Title from 'components/Title';
+import Section from 'components/Section';
 
 class ImageGallery extends Component {
   static propTypes = {
@@ -47,20 +49,25 @@ class ImageGallery extends Component {
     try {
       const data = await getSearchedPicturesApi(query, page);
 
-      if (data.length === 0) throw new Error('No images on your request');
+      if (data.hits.length === 0) {
+
+        throw new Error("OOPS... We found nothing... Sorry..")};
 
       this.setState(prevState => ({
         images: page === 1 ? data.hits : [...prevState.images, ...data.hits],
       }));
     } catch (error) {
-      console.log(error.message);
+      // console.log(error);
+
       this.setState({ error: error.message });
     } finally {
       this.setState({ isLoading: false });
     }
   };
 
-  loadMoreImages = () => {};
+  changePage = () => {
+    this.setState((prevState)=>({page: prevState.page + 1}))
+  };
 
   openModal = modalData => {
     this.setState({ modalData });
@@ -73,12 +80,13 @@ class ImageGallery extends Component {
   render() {
     const { isLoading, error, images, modalData } = this.state;
     return (
-      <>
+      <Section>
         {isLoading && <Loader />}
         {error ? (
-          <h2>{error.message}</h2>
+          <Title>{error}</Title>
         ) : (
           <>
+
             <Gallery images={images}>
               {images.map(({ id, webformatURL, largeImageURL }) => (
                 <ImageGalleryItem
@@ -91,12 +99,12 @@ class ImageGallery extends Component {
               ))}
             </Gallery>
             {images.length > 0 && (
-              <LoadMoreButton onClick={this.loadMoreImages} />
+              <LoadMoreButton onClick={this.changePage} />
             )}
             {modalData && <Modal {...modalData} closeModal={this.closeModal} />}
           </>
         )}
-      </>
+      </Section>
     );
   }
 }

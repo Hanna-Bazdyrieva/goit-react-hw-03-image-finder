@@ -1,14 +1,12 @@
 const theme = {
+  
   colors: {
-    list: '#f4f1ad',
+    red: '#cb8989',   
     container: 'rgb(247, 246, 237)',
-    delete: '#f9abab',
-    add: '#b6f9c9',
-
-    // notify: 'rgb(106, 17, 17)',
-    // section: 'rgb(244, 244, 215)',
-    // neutral: '#a9e1f9',
-    // default: '#f6f6f6',
+    accent: '#416920',
+    active: '#325119',
+    section: 'rgb(244, 244, 215)',
+    neutral: '#a9e1f9',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 252],
   fonts: {
@@ -16,7 +14,7 @@ const theme = {
     heading: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
-  sizes: [140, 240, 600, 800, 1200],
+  sizes: [140, 240, 600, 800, 1200, 48],
   fontSizes: {
     xs: '12px',
     s: '14px',
@@ -27,6 +25,7 @@ const theme = {
   },
   fontWeights: {
     normal: 400,
+    middle: 500,
     bold: 700,
   },
   lineHeights: {
@@ -49,9 +48,12 @@ const theme = {
   shadows: {
     normal: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
     hover: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px',
+   inner: '0px 0px 7px 4px rgba(45,55,44,0.63) inset',
+    max: '0px 0px 15px 13px rgba(0,0,0,0.65)',
   },
   transitions: {
     ease: '300ms ease',
+    cubic: '300ms cubic-bezier(0.4, 0, 0.2, 1)'
   },
 };
 export default theme;

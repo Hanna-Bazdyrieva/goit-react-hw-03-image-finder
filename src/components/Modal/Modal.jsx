@@ -1,5 +1,4 @@
-import { StyledModal, Overlay } from './Modal.styled';
-import Box from 'components/Box/Box';
+import { StyledModal, Overlay, Img } from './Modal.styled';
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
@@ -36,9 +35,7 @@ class Modal extends Component {
     return createPortal(
       <Overlay onClick={this.closeModalOnBackdrop}>
         <StyledModal>
-          <Box px={4} py={4} bg="container" textAlign="center">
-            <img src={url} alt={id} />
-          </Box>
+            <Img src={url} alt={id} />
         </StyledModal>
       </Overlay>,
       modalRoot

@@ -10,7 +10,7 @@ const ImageGalleryItem = ({ id, url, urlLarge, openModal }) => {
 };
 
 ImageGalleryItem.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   url: PropTypes.string.isRequired,
   urlLarge: PropTypes.string.isRequired,
   openModal: PropTypes.func.isRequired,

@@ -5,10 +5,9 @@ import {
   SearchForm,
   ButtonSearch,
   SearchInput,
-  ButtonLabel,
 } from './Searchbar.styled';
 import { FcSearch } from 'react-icons/fc';
-import { GoSearch } from 'react-icons/go';
+// import { GoSearch } from 'react-icons/go';
 
 class Searchbar extends Component {
   state = {

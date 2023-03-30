@@ -14,9 +14,8 @@ export const StyledBar = styled.header`
   padding-top: 12px;
   padding-bottom: 12px;
   color: #fff;
-  background-color: #3f51b5;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  background-color: ${p => p.theme.colors.accent};
+  box-shadow: ${p => p.theme.shadows.max};
 `;
 
 export const SearchForm = styled.form`
@@ -27,24 +26,25 @@ export const SearchForm = styled.form`
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+  
 `;
 
 export const ButtonSearch = styled.button`
   display: block;
-  width: 48px;
-  height: 48px;
+  width: ${p => p.theme.sizes[5]}px;
+  height: ${p => p.theme.sizes[5]}px;
   border: 0;
-  /* background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
-  background-size: 40%; */
-  /* background-repeat: no-repeat;
-  background-position: center; */
-  opacity: 0.6;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color:${p => p.theme.colors.section};
+    opacity: 0.8;
+  transition: opacity ${p => p.theme.transitions.cubic};
+
   cursor: pointer;
   outline: none;
 
   :hover {
     opacity: 1;
+    box-shadow: ${p => p.theme.shadows.inner};
+
   }
 `;
 
@@ -63,12 +63,17 @@ export const ButtonLabel = styled.span`
 export const SearchInput = styled.input`
   display: inline-block;
   width: 100%;
+  height: ${p => p.theme.sizes[5]}px;
   font: inherit;
-  font-size: 20px;
+  font-size: ${p => p.theme.fontSizes.ml};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  text-align: center;
   border: none;
   outline: none;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: ${p => p.theme.space[2]}px;
+  padding-right: ${p => p.theme.space[2]}px;
+  box-shadow:  ${p => p.theme.shadows.inner};
+;
 
   ::placeholder {
     font: inherit;
